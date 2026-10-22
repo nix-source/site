@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesglob.css">
+    <title>Adrien Naicken - Contact</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../acceuil/index.html" class="logo">ACCUEIL</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="../profil/profil.html">Profil</a></li>
+                <li><a href="../competances/competances.html">Compétences</a></li>
+                <li><a href="../contact/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-container">
+        <form action="https://formspree.io/f/xeaqgqlz" method="post" class="form">
+            <h1 class="titre">Me Contacter</h1>
+            <p class="sous-titre">Envoyez-moi un message.</p>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="user_name" placeholder="Votre nom" required />
+                </div>
+                <div class="form-group">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="user_firstname" placeholder="Votre prénom" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mail">Adresse E-mail</label>
+                <input type="email" id="mail" name="user_mail" placeholder="exemple@domaine.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="msg">Message</label>
+                <textarea id="msg" name="user_message" placeholder="Votre message..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <span>Envoyer le message</span>
+            </button>
+        </form>
+    </main>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-left">
+            <a href="../acceuil/acceuil.html" class="footer-logo">&gt; Adrien Naicken</a>
+            <p>&copy; 2026 — Tous droits réservés.</p>
+        </div>
+    </div>
+    </footer>
+
+
+
+</body>
+</html>

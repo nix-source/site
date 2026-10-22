@@ -1,0 +1,619 @@
+/* ==========================================================================
+   1. POLICES & IMPORTATIONS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+/* ==========================================================================
+   2. VARIABLES SYSTEME
+   ========================================================================== */
+:root {
+  
+  --green-neon: #ff0000;
+  --purple-glow: #7928ca;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(100, 82, 220, 0.4);
+  
+  --shadow-glow: 0 0 25px rgba(0, 242, 254, 0.15);
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   3. REINITIALISATION & DEFAUTS
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #07090e;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  flex-direction: column;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(121, 40, 202, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   4. NAVBAR FUTURISTE (GLASSMORPHISM)
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(7, 9, 14, 0.7);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;  
+  gap: 8px;
+}
+
+.logo::before {
+  content: '>';
+  color: var(--green-neon);
+  font-weight: 800;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-links a:hover {
+  color: #00f2fe;
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green-neon), #00f2fe);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   5. PAGE D'ACCUEIL & VÍDEO
+   ========================================================================== */
+
+.overflow {
+  overflow: hidden;
+}   
+.video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 70%;
+  filter: brightness(0.75);
+
+}
+
+
+.video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(7, 9, 14, 0.4) 50%, rgba(0, 0, 0, 0.7) 50%);
+  background-size: 100% 4px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nom {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4.5rem;
+  text-align: center;
+  margin-top: 38vh;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 30%, #00f2fe 100%);
+  -webkit-background-clip: text;
+}
+
+.idee {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--green-neon);
+  font-weight: 400;
+  margin-top: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. SECTION PROFIL
+   ========================================================================== */
+.profil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  max-width: 1100px;
+  margin: 160px auto 4rem;
+  padding: 3rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.profil-img {
+  position: relative;
+}
+
+.profil-img::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--green-neon), var(--purple-glow));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.profil-img:hover::before {
+  opacity: 1;
+}
+
+.profil-img .img {
+  width: 250px;
+  height: 250px;
+  border-radius: 20%;
+  object-fit: cover;
+  border: 2px solid rgba(247, 243, 243, 0.1);
+  display: block;
+}
+
+.profil-content .t1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, var(--text-primary), #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profil-content .p1 {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.profil-content a {
+  color: #fc0101;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  
+}
+
+.profil-content a:hover {
+  color: var(--purple-glow);
+  border-bottom-color: var(--purple-glow);
+}
+
+
+/* ==========================================================================
+   7. SECTION COMPETENCES (CARDS DESIGN)
+   ========================================================================== */
+   .competances {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+    margin: clamp(60px, 10vw, 160px) auto 4rem;
+    padding: 0 5%;
+  }
+  
+  /* La 1ère carte (celle de gauche avec les classements) s'étale sur toute la largeur */
+  .competances > div:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+  
+  .competances > div {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    padding: 8% 5%;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .competances > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .competances > div:hover {
+    transform: translateY(-10px);
+    background: rgba(20, 32, 58, 0.85);
+    border-color: var(--border-active);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .competances > div:hover::before {
+    transform: translateX(100%);
+  }
+  
+.tableau_classement {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 1.5rem;
+  background: rgba(7, 9, 14, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* En-tête du tableau ("Classements") */
+.tableau_classement th:first-child:not(tr th) {
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(121, 40, 202, 0.15));
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+/* Cellules du tableau (lignes des mois/classements) */
+.tableau_classement tr th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Supprime la bordure sur la dernière ligne pour un rendu propre */
+.tableau_classement tr:last-child th {
+  border-bottom: none;
+}
+
+/* Effet au survol d'une ligne du tableau */
+.tableau_classement tr:hover th {
+  color: #00f2fe;
+  background: rgba(0, 242, 254, 0.05);
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
+}
+  .competances img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+  }
+  
+  .competances .linux,
+  .competances #comp {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+  }
+  
+  .competances > div:hover img {
+    transform: scale(1.1);
+  }
+  
+  .competances p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    margin: 0;
+  }
+/* ==========================================================================
+   8. SECTION CONTACT (FORMULAIRE MODERNISÉ)
+   ========================================================================== */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 120px 1.5rem 3rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 650px;
+  padding: 3rem;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.form .titre {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sous-titre {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+/* Grille pour Nom et Prénom côte à côte */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.form-group label {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: 10px;
+  background: rgba(7, 9, 14, 0.7);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00f2fe;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+  background: rgba(7, 9, 14, 0.9);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* Bouton Cyber */
+.btn-submit {
+  width: 100%;
+  background: white;
+  color: #07090e;
+  border: none;
+  padding: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 255, 135, 0.35);
+}
+
+
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
+
+
+.site-footer {
+    width: 100%;
+    background: rgba(3, 4, 6, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: auto;
+    padding: 3rem 8%;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: 2px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-style: normal;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00f2fe;
+    text-decoration: none;
+}
+
+
+
+/* Ajustement Mobile */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .form {
+    padding: 2rem 1.5rem;
+  }
+}
+/* ==========================================================================
+   9. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 868px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+
+  .nav-links ul {
+    gap: 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .profil {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    margin-top: 180px;
+    padding: 2rem 1.5rem;
+  }
+
+  .nom {
+    font-size: 2.8rem;
+  }
+  
+  .idee {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .competances {
+    grid-template-columns: 1fr; /* 1 colonne de 100% */
+  }
+}
